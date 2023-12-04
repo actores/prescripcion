@@ -36,8 +36,6 @@
                 <table class="table mt-5" id="tablaNoIdentificados">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Capitulo</th>
                             <th scope="col">Personaje</th>
                             <th scope="col">Actor</th>
                         </tr>
@@ -46,8 +44,6 @@
                         {% for rp in repertorio %}
                         {% if rp.numeroActor == '0' %}
                         <tr>
-                            <td>{{rp.id}}</td>
-                            <td>{{rp.tituloCapitulo}}</td>
                             <td>{{rp.personaje}}</td>
                             <td>{{rp.nombreActor}}</td>
                         </tr>
@@ -61,8 +57,6 @@
                 <table class="table mt-5" id="tablaNoSocios">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Capitulo</th>
                             <th scope="col">Personaje</th>
                             <th scope="col">Actor</th>
                         </tr>
@@ -71,8 +65,6 @@
                         {% for rp in repertorio %}
                         {% if rp.numeroActor != '0' %}
                         <tr>
-                            <td>{{rp.id}}</td>
-                            <td>{{rp.tituloCapitulo}}</td>
                             <td>{{rp.personaje}}</td>
                             <td>{{rp.nombreActor}}</td>
                         </tr>
