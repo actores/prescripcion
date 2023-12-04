@@ -1,0 +1,90 @@
+{% extends "./base.html" %}
+
+{% block title %} Explotaciones {% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+
+    <div class="row mt-5">      
+        <nav aria-label="breadcrumb" class="mt-5">
+            {% if serie %}
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Series</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> <a href="/detalleExplotacion/{{serie.id}}">Explotaciones {{ serie.titulo }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Repertorio</li>
+            </ol>
+            {% endif %}
+        </nav>
+    </div>
+    <div class="row my-5">
+
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#content1">ARTISTAS NO
+                    IDENTIFICADOS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#content2">ARTISTAS NO SOCIOS</a>
+            </li>
+        </ul>
+
+        <div class="tab-content pt-5">
+            <div id="content1" class="tab-pane fade show active">
+
+                <table class="table mt-5" id="tablaNoIdentificados">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Capitulo</th>
+                            <th scope="col">Personaje</th>
+                            <th scope="col">Actor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rp in repertorio %}
+                        {% if rp.numeroActor == '0' %}
+                        <tr>
+                            <td>{{rp.id}}</td>
+                            <td>{{rp.tituloCapitulo}}</td>
+                            <td>{{rp.personaje}}</td>
+                            <td>{{rp.nombreActor}}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+            <div id="content2" class="tab-pane fade">
+                <table class="table mt-5" id="tablaNoSocios">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Capitulo</th>
+                            <th scope="col">Personaje</th>
+                            <th scope="col">Actor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rp in repertorio %}
+                        {% if rp.numeroActor != '0' %}
+                        <tr>
+                            <td>{{rp.id}}</td>
+                            <td>{{rp.tituloCapitulo}}</td>
+                            <td>{{rp.personaje}}</td>
+                            <td>{{rp.nombreActor}}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+      
+    </div>
+</div>
+
+{% endblock %}

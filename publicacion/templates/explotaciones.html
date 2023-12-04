@@ -1,0 +1,44 @@
+{% extends "./base.html" %}
+
+{% block title %} Explotaciones {% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+
+    <div class="row mt-5">      
+        <nav aria-label="breadcrumb" class="mt-5">
+            {% if serie %}
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Series</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Explotaciones {{ serie.titulo }} {{ serie.id }}</li>
+            </ol>
+            {% endif %}
+        </nav>
+    </div>
+    <div class="row my-5">
+        <table class="table" id="tablaExplotaciones">
+            <thead>
+                <tr>
+                    <th scope="col">Cadena</th>
+                    <th scope="col">Año</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for explotacion in explotaciones %}
+                <tr>
+                    <td>{{explotacion.1}}</td>
+                    <td>{{explotacion.2}}</td>
+                    <td>
+                        <a href="detalleRepertorio/{{serie.id}}/{{explotacion.1}}/{{explotacion.2}}" class="btn btn-sm btn-dark">Detalle</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "./base.html" %}
+
+{% block title %} Detalle de obra {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row" style="padding: 8rem 0 2rem; ">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">OBRAS</a></li>
+                <li class="breadcrumb-item"><a href="./index.html">TAMBIEN CAERAS.CARACOL/19.07.2010 AL 31.12.2010</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Detalle</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="row">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#content1">ARTISTAS NO
+                    IDENTIFICADOS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#content2">ARTISTAS NO SOCIOS</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="content1" class="tab-pane fade show active">
+
+                <div class="row mt-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Artísta</th>
+                                <th scope="col">Personaje</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Publicación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for detalle in detallado %}
+                            {% if detalle.estado == '0' %}
+                                <tr>
+                                    <th scope="row">{{detalle.id}}</th>
+                                    <td>{{detalle.artista}}</td>
+                                    <td>{{detalle.personaje}}</td>
+                                    <td>{{detalle.estado}}</td>
+                                    <td>{{detalle.created_at}}</td>
+                                </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <div id="content2" class="tab-pane fade">
+
+                <div class="row mt-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Artísta</th>
+                                <th scope="col">Personaje</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Publicación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for detalle in detallado %}
+                            {% if detalle.estado == '1' %}
+                            <tr>
+                                <th scope="row">{{detalle.id}}</th>
+                                <td>{{detalle.artista}}</td>
+                                <td>{{detalle.personaje}}</td>
+                                <td>{{detalle.estado}}</td>
+                                <td>{{detalle.created_at}}</td>
+                            </tr>
+                        {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
