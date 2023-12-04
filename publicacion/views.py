@@ -46,16 +46,16 @@ def detalleExplotacion(request, id):
 
 
 
-def detalleRepertorio(request,idSerie, cadena, anio):
+def detalleRepertorio(request, idSerie, cadena, anio):
     serie = Serie.objects.get(id=idSerie)
 
     sql_query = """
     SELECT r.*, e.cadena, e.anio
     FROM publicacion_repertorio AS r
     INNER JOIN publicacion_explotacion AS e ON r.explotacion_id = e.id
-    WHERE e.serie_id = 6865 AND e.cadena = 'Canal RCN' AND e.anio = '2012';
+    WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s;
     """
-    repertorio = Repertorio.objects.raw(sql_query)
+    repertorio = Repertorio.objects.raw(sql_query, [idSerie, cadena, anio])
     
     return render(request, "repertorio.html", {
         'serie': serie,
