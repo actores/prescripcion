@@ -50,13 +50,20 @@ def detalleExplotacion(request, id):
 def detalleRepertorio(request, idSerie, cadena, anio):
     serie = Serie.objects.get(id=idSerie)
 
-
     noIdentificados = Repertorio.objects.filter(
         explotacion__serie_id=idSerie,
         explotacion__cadena=cadena,
         explotacion__anio=anio,
         numeroActor=0
     ).values('personaje', 'nombreActor')
+
+    noSocios = Repertorio.objects.filter(
+        explotacion__serie_id=idSerie,
+        explotacion__cadena=cadena,
+        explotacion__anio=anio,
+        numeroActor__gt=0  # Filtro para obtener resultados donde numeroActor sea diferente de 0
+    ).values('personaje', 'nombreActor').distinct()
+
 
     # sql_query = """
     # SELECT r.*, e.cadena, e.anio
@@ -82,16 +89,11 @@ def detalleRepertorio(request, idSerie, cadena, anio):
     # noIdentificados = Repertorio.objects.raw(sql_query_ni, [idSerie, cadena, anio])
     # noSocios = Repertorio.objects.raw(sql_query_ns, [idSerie, cadena, anio])
     
-    # return render(request, "repertorio.html", {
-    #     'serie': serie,
-    #     'noIdentificados':noIdentificados,
-    #     'noSocios': noSocios
-    # })
     return render(request, "repertorio.html", {
-        'serie':serie,
+        'serie': serie,
         'noIdentificados':noIdentificados,
+        'noSocios': noSocios
     })
-
 # def detalleObra(request, id):
 #     detallado = DetalleObra.objects.filter(obra_id=id)
 #     return render(request, "detalleObra.html",{
