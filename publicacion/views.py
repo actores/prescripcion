@@ -74,11 +74,12 @@ def detalleRepertorio(request, idSerie, cadena, anio):
     noIdentificados = Repertorio.objects.raw(sql_query_ni, [idSerie, cadena, anio])
     noSocios = Repertorio.objects.raw(sql_query_ns, [idSerie, cadena, anio])
     
-    return render(request, "repertorio.html", {
-        'serie': serie,
-        'noIdentificados':noIdentificados,
-        'noSocios': noSocios
-    })
+    # return render(request, "repertorio.html", {
+    #     'serie': serie,
+    #     'noIdentificados':noIdentificados,
+    #     'noSocios': noSocios
+    # })
+    return render(request, "repertorio.html")
 
 # def detalleObra(request, id):
 #     detallado = DetalleObra.objects.filter(obra_id=id)
