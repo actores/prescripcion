@@ -80,7 +80,8 @@ def detalleRepertorio(request, idSerie, cadena, anio):
     #     'noSocios': noSocios
     # })
     return render(request, "repertorio.html", {
-        'serie':serie
+        'serie':serie,
+        'noIdentificados':noIdentificados,
     })
 
 # def detalleObra(request, id):

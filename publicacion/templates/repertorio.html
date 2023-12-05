@@ -12,7 +12,7 @@
             {% if serie %}
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Series</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> <a href="/detalleExplotacion/{{serie.id}}">Explotaciones {{ serie.titulo }} {{ serie.pais }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> <a href="/detalleExplotacion/{{serie.id}}">Explotaciones {{ serie.titulo }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Repertorio</li>
             </ol>
             {% endif %}
@@ -33,7 +33,7 @@
         <div class="tab-content pt-5">
             <div id="content1" class="tab-pane fade show active">
 
-                <!-- <table class="table mt-5" id="tablaNoIdentificados">
+                <table class="table mt-5" id="tablaNoIdentificados">
                     <thead>
                         <tr>
                             <th scope="col">Personaje</th>
@@ -49,7 +49,7 @@
                         </tr>
                         {% endfor %}
                     </tbody>
-                </table> -->
+                </table>
 
             </div>
             <div id="content2" class="tab-pane fade">
