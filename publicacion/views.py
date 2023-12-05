@@ -50,6 +50,14 @@ def detalleExplotacion(request, id):
 def detalleRepertorio(request, idSerie, cadena, anio):
     serie = Serie.objects.get(id=idSerie)
 
+
+    noIdentificados = Repertorio.objects.filter(
+        explotacion__serie_id=idSerie,
+        explotacion__cadena=cadena,
+        explotacion__anio=anio,
+        numeroActor=0
+    ).values('personaje', 'nombreActor')
+
     # sql_query = """
     # SELECT r.*, e.cadena, e.anio
     # FROM publicacion_repertorio AS r
@@ -57,22 +65,22 @@ def detalleRepertorio(request, idSerie, cadena, anio):
     # WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s;
     # """
 
-    sql_query_ni = """
-    SELECT r.id,r.tituloCapitulo,r.numeroActor,r.personaje,r.nombreActor,r.numeroObra,r.created_at,r.updated_at,r.explotacion_id,e.cadena, e.anio
-    FROM publicacion_repertorio AS r
-    INNER JOIN publicacion_explotacion AS e ON r.explotacion_id = e.id
-    WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s AND r.numeroActor = 0 group by r.personaje
-    """
+    # sql_query_ni = """
+    # SELECT r.id,r.tituloCapitulo,r.numeroActor,r.personaje,r.nombreActor,r.numeroObra,r.created_at,r.updated_at,r.explotacion_id,e.cadena, e.anio
+    # FROM publicacion_repertorio AS r
+    # INNER JOIN publicacion_explotacion AS e ON r.explotacion_id = e.id
+    # WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s AND r.numeroActor = 0 group by r.personaje
+    # """
 
-    sql_query_ns = """
-    SELECT r.id,r.tituloCapitulo,r.numeroActor,r.personaje,r.nombreActor,r.numeroObra,r.created_at,r.updated_at,r.explotacion_id,e.cadena, e.anio
-    FROM publicacion_repertorio AS r
-    INNER JOIN publicacion_explotacion AS e ON r.explotacion_id = e.id
-    WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s AND r.numeroActor <> 0 group by r.numeroActor
-    """
+    # sql_query_ns = """
+    # SELECT r.id,r.tituloCapitulo,r.numeroActor,r.personaje,r.nombreActor,r.numeroObra,r.created_at,r.updated_at,r.explotacion_id,e.cadena, e.anio
+    # FROM publicacion_repertorio AS r
+    # INNER JOIN publicacion_explotacion AS e ON r.explotacion_id = e.id
+    # WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s AND r.numeroActor <> 0 group by r.numeroActor
+    # """
 
-    noIdentificados = Repertorio.objects.raw(sql_query_ni, [idSerie, cadena, anio])
-    noSocios = Repertorio.objects.raw(sql_query_ns, [idSerie, cadena, anio])
+    # noIdentificados = Repertorio.objects.raw(sql_query_ni, [idSerie, cadena, anio])
+    # noSocios = Repertorio.objects.raw(sql_query_ns, [idSerie, cadena, anio])
     
     # return render(request, "repertorio.html", {
     #     'serie': serie,
