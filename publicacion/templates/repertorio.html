@@ -62,11 +62,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for rp in repertorio %}
-                        {% if rp.numeroActor != '0' %}
+                        {% for ns in noSocios %}
+                        {% if ns.numeroActor != '0' %}
                         <tr>
-                            <td>{{rp.personaje}}</td>
-                            <td>{{rp.nombreActor}}</td>
+                            <td>{{ns.personaje}}</td>
+                            <td>{{ns.nombreActor}}</td>
                         </tr>
                         {% endif %}
                         {% endfor %}
