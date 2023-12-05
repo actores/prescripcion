@@ -58,7 +58,7 @@ def detalleRepertorio(request, idSerie, cadena, anio):
     # """
 
     sql_query_ni = """
-SELECT r.id,r.tituloCapitulo,r.numeroActor,r.personaje,r.nombreActor,r.numeroObra,r.created_at,r.updated_at,r.explotacion_id,e.cadena, e.anio
+    SELECT r.id,r.tituloCapitulo,r.numeroActor,r.personaje,r.nombreActor,r.numeroObra,r.created_at,r.updated_at,r.explotacion_id,e.cadena, e.anio
     FROM publicacion_repertorio AS r
     INNER JOIN publicacion_explotacion AS e ON r.explotacion_id = e.id
     WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s AND r.numeroActor <> 0 group by r.nombreActor

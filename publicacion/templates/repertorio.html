@@ -41,11 +41,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for rp in repertorio %}
-                        {% if rp.numeroActor == '0' %}
+                        {% for ni in noIdentificados %}
+                        {% if ni.numeroActor == '0' %}
                         <tr>
-                            <td>{{rp.personaje}}</td>
-                            <td>{{rp.nombreActor}}</td>
+                            <td>{{ni.personaje}}</td>
+                            <td>{{ni.nombreActor}}</td>
                         </tr>
                         {% endif %}
                         {% endfor %}
