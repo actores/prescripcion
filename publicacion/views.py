@@ -79,7 +79,9 @@ def detalleRepertorio(request, idSerie, cadena, anio):
     #     'noIdentificados':noIdentificados,
     #     'noSocios': noSocios
     # })
-    return render(request, "repertorio.html")
+    return render(request, "repertorio.html", {
+        'serie':serie
+    })
 
 # def detalleObra(request, id):
 #     detallado = DetalleObra.objects.filter(obra_id=id)
