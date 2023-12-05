@@ -42,12 +42,11 @@
                     </thead>
                     <tbody>
                         {% for ni in noIdentificados %}
-                        {% if ni.numeroActor == '0' %}
+                        
                         <tr>
                             <td>{{ni.personaje}}</td>
                             <td>{{ni.nombreActor}}</td>
                         </tr>
-                        {% endif %}
                         {% endfor %}
                     </tbody>
                 </table>
