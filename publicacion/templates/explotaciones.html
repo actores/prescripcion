@@ -6,9 +6,10 @@
 
 
 <div class="container">
+    <div class="row my-5">
+      <div class="col-md-8 offset-md-2">
 
-    <div class="row mt-5">      
-        <nav aria-label="breadcrumb" class="mt-5">
+        <nav aria-label="breadcrumb" style="margin: 5rem 0 4rem;">
             {% if serie %}
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Series</a></li>
@@ -16,8 +17,8 @@
             </ol>
             {% endif %}
         </nav>
-    </div>
-    <div class="row my-5">
+
+
         <table class="table" id="tablaExplotaciones">
             <thead>
                 <tr>
@@ -34,12 +35,13 @@
                     <td>{{explotacion.1}}</td>
                     <td>{{explotacion.2}}</td>
                     <td>
-                        <a href="detalleRepertorio/{{serie.id}}/{{explotacion.0}}/{{explotacion.1}}" class="btn btn-sm btn-dark">Detalle</a>
+                        <a href="detalleRepertorio/{{serie.id}}/{{explotacion.0}}/{{explotacion.1}}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important">Detalle</a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+      </div>
     </div>
 </div>
 

@@ -7,74 +7,78 @@
 
 <div class="container">
 
-    <div class="row mt-5">      
-        <nav aria-label="breadcrumb" class="mt-5">
-            {% if serie %}
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Series</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> <a href="/detalleExplotacion/{{serie.id}}">Explotaciones {{ serie.titulo }}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Repertorio</li>
-            </ol>
-            {% endif %}
-        </nav>
-    </div>
     <div class="row my-5">
 
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#content1">ARTISTAS NO
-                    IDENTIFICADOS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#content2">ARTISTAS NO SOCIOS</a>
-            </li>
-        </ul>
+        <div class="col-md-8 offset-md-2">
 
-        <div class="tab-content pt-5">
-            <div id="content1" class="tab-pane fade show active">
+            <nav aria-label="breadcrumb" style="margin: 5rem 0 4rem;">
+                {% if serie %}
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Series</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> <a
+                            href="/detalleExplotacion/{{serie.id}}">Explotaciones {{ serie.titulo }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Repertorio</li>
+                </ol>
+                {% endif %}
+            </nav>
 
-                <table class="table mt-5" id="tablaNoIdentificados">
-                    <thead>
-                        <tr>
-                            <th scope="col">Personaje</th>
-                            <th scope="col">Actor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for ni in noIdentificados %}
-                        
-                        <tr>
-                            <td>{{ni.personaje}}</td>
-                            <td>{{ni.nombreActor}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
 
-            </div>
-            <div id="content2" class="tab-pane fade">
-                <table class="table mt-5" id="tablaNoSocios">
-                    <thead>
-                        <tr>
-                            <th scope="col">Personaje</th>
-                            <th scope="col">Actor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for ns in noSocios %}
-                        {% if ns.numeroActor != '0' %}
-                        <tr>
-                            <td>{{ns.personaje}}</td>
-                            <td>{{ns.nombreActor}}</td>
-                        </tr>
-                        {% endif %}
-                        {% endfor %}
-                    </tbody>
-                </table>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#content1">ARTISTAS NO
+                        IDENTIFICADOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#content2">ARTISTAS NO SOCIOS</a>
+                </li>
+            </ul>
+
+            <div class="tab-content pt-5">
+                <div id="content1" class="tab-pane fade show active">
+
+                    <table class="table mt-5" id="tablaNoIdentificados">
+                        <thead>
+                            <tr>
+                                <th scope="col">Personaje</th>
+                                <th scope="col">Actor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ni in noIdentificados %}
+
+                            <tr>
+                                <td>{{ni.personaje}}</td>
+                                <td>{{ni.nombreActor}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+                <div id="content2" class="tab-pane fade">
+                    <table class="table mt-5" id="tablaNoSocios">
+                        <thead>
+                            <tr>
+                                <th scope="col">Personaje</th>
+                                <th scope="col">Actor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ns in noSocios %}
+                            {% if ns.numeroActor != '0' %}
+                            <tr>
+                                <td>{{ns.personaje}}</td>
+                                <td>{{ns.nombreActor}}</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
-      
+
     </div>
 </div>
 

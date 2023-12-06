@@ -30,7 +30,7 @@ const dataTableOptions = {
     columnDefs: [
         { orderable: false, targets: [2] },
     ],
-    pageLength: 8,
+    pageLength: 50,
     destroy: true
 }
 
@@ -39,11 +39,9 @@ const initDatatable = async () => {
         dataTable.destroy();
     }
 
-    setTimeout(async () => {
-        await listarSeries();
-        dataTable = $('#tablaSeries').DataTable(dataTableOptions);
-        dataTableIsInitialized = true;
-    }, 3000);
+    await listarSeries();
+    dataTable = $('#tablaSeries').DataTable(dataTableOptions);
+    dataTableIsInitialized = true;
 
     setTimeout(() => {
         loader.style.display = "none"
@@ -51,13 +49,13 @@ const initDatatable = async () => {
         loader.style.zIndex = "-10"
         loader.style.width = "0"
         loader.style.height = "0"
-    }, 3000)
+    }, 5000)
 };
 
 
 const listarSeries = async () => {
     try {
-        const response = await fetch('https://modulo-prescripcion.onrender.com/api/listar/series/');
+        const response = await fetch('http://127.0.0.1:8000/api/listar/series/');
         const data = await response.json();
 
 
@@ -71,7 +69,7 @@ const listarSeries = async () => {
                 <td>${serie.titulo}</td>
                 <td>${serie.pais}</td>
                 <td>
-                    <a href="detalleExplotacion/${serie.id}" class="btn btn-sm btn-dark">Detalle</a>
+                    <a href="detalleExplotacion/${serie.id}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important">Detalle</a>
                 </td>
             </tr>
             `
