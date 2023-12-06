@@ -63,7 +63,7 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         explotacion__cadena=cadena,
         explotacion__anio=anio,
         numeroActor=0
-    ).values('personaje', 'nombreActor')
+    ).values('personaje', 'nombreActor').distinct()
 
     noSocios = Repertorio.objects.filter(
         explotacion__serie_id=idSerie,
