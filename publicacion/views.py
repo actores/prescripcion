@@ -33,7 +33,7 @@ def detalleExplotacion(request, id):
     serie = get_object_or_404(Serie, id=id)
 
     # Ejecutar la consulta SQL cruda
-    consulta_sql = """SELECT cadena, anio, created_at FROM publicacion_explotacion WHERE serie_id = %s GROUP BY cadena, anio;"""
+    consulta_sql = """SELECT cadena, anio, created_at FROM publicacion_explotacion WHERE serie_id = %s GROUP BY cadena, anio, created_at;"""
 
     try:
         with connection.cursor() as cursor:
