@@ -66,8 +66,8 @@ const listarSeries = async () => {
         data.series.forEach((serie, index) => {
             content += `
             <tr>
-                <td>${serie.titulo}</td>
-                <td>${serie.pais}</td>
+            <td>${serie.titulo.toUpperCase()}</td>
+            <td>${serie.pais.toUpperCase()}</td>
                 <td>
                     <a href="detalleExplotacion/${serie.id}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important">Detalle</a>
                 </td>
