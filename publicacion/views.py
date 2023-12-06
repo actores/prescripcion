@@ -2,9 +2,9 @@ from django.db import connection
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from .models import Serie,Explotacion,Repertorio
-from django.http.response import JsonResponse
 # # from .models import Obra,DetalleObra
 from django.db.models import Q
+from django.http.response import JsonResponse
 
 # # Create your views here.
 # def home(request):
@@ -13,7 +13,7 @@ from django.db.models import Q
 #         'obras': obras
 #     })
 
-# Create your views here.
+# # Create your views here.
 # def listarSeries(request):
 #     series = Serie.objects.all()
 #     return render(request, "series.html", {
@@ -33,7 +33,7 @@ def detalleExplotacion(request, id):
     serie = get_object_or_404(Serie, id=id)
 
     # Ejecutar la consulta SQL cruda
-    consulta_sql = """SELECT cadena, anio FROM publicacion_explotacion WHERE serie_id = %s GROUP BY cadena, anio;"""
+    consulta_sql = """SELECT cadena, anio, created_at FROM publicacion_explotacion WHERE serie_id = %s GROUP BY cadena, anio;"""
 
     try:
         with connection.cursor() as cursor:
@@ -55,7 +55,6 @@ def detalleExplotacion(request, id):
 
 
 
-
 def detalleRepertorio(request, idSerie, cadena, anio):
     serie = Serie.objects.get(id=idSerie)
 
@@ -72,6 +71,7 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         explotacion__anio=anio,
         numeroActor__gt=0  # Filtro para obtener resultados donde numeroActor sea diferente de 0
     ).values('personaje', 'nombreActor').distinct()
+    
 
 
     # sql_query = """
