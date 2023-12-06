@@ -57,7 +57,7 @@ const initDatatable = async () => {
 
 const listarSeries = async () => {
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/listar/series/');
+        const response = await fetch('https://modulo-prescripcion.onrender.com/api/listar/series/');
         const data = await response.json();
 
 
