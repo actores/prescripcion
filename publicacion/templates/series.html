@@ -1,11 +1,19 @@
 {% extends "./base.html" %}
 
-{%  block title %} Buscador de series {% endblock %}
+{% block title %} Buscador de series {% endblock %}
 
 {% block body %}
 
-<div class="container"  style="padding-top: 8rem;">
-    <div class="row my-5">
+<div class="card d-flex justify-content-center align-items-center border-0" style="position: absolute; top:0; width: 100vw; height: 100vh;" id="loader">
+    <div class="spinner-border m-5" role="status">
+        <span class="visually-hidden">Cargando series...</span>
+    </div>  
+</div>
+
+<div class="container" style="padding-top: 8rem;">
+
+
+    <div class="row my-5" id="contenedorPrincipalSeries">
         <table class="table" id="tablaSeries">
             <caption>
                 Listado series
@@ -17,7 +25,9 @@
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody id="tableBody_series"></tbody>
+            <tbody id="tableBody_series">
+                
+            </tbody>
         </table>
     </div>
 </div>

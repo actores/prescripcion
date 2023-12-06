@@ -1,5 +1,6 @@
 let dataTable;
 let dataTableIsInitialized = false;
+let tableBody_series = document.getElementById('tableBody_series')
 
 const dataTableOptions = {
     language: {
@@ -26,33 +27,46 @@ const dataTableOptions = {
             "sSortDescending": ": Activar para ordenar la columna de manera descendente"
         }
     },
-    columnDefs:[
-        {orderable:false, targets:[2]},
-    ]
+    columnDefs: [
+        { orderable: false, targets: [2] },
+    ],
+    pageLength: 8,
+    destroy: true
 }
 
-const initDatatable = async () =>{
-    if(dataTableIsInitialized){
+const initDatatable = async () => {
+    if (dataTableIsInitialized) {
         dataTable.destroy();
     }
 
-    await listarSeries();
-    dataTable=$('#tablaSeries').DataTable(dataTableOptions);
+    setTimeout(async () => {
+        await listarSeries();
+        dataTable = $('#tablaSeries').DataTable(dataTableOptions);
+        dataTableIsInitialized = true;
+    }, 3000);
 
-    dataTableIsInitialized = true;
-}
+    setTimeout(() => {
+        loader.style.display = "none"
+        loader.style.position = "relative"
+        loader.style.zIndex = "-10"
+        loader.style.width = "0"
+        loader.style.height = "0"
+    }, 3000)
+};
 
-const listarSeries = async()=>{
-    try{
+
+const listarSeries = async () => {
+    try {
         const response = await fetch('http://127.0.0.1:8000/api/listar/series/');
         const data = await response.json();
 
 
-        let tableBody_series = document.getElementById('tableBody_series')
+
+
 
         let content = ``;
-        data.series.forEach((serie, index)=>{
-            content+= `
+        data.series.forEach((serie, index) => {
+            content += `
             <tr>
                 <td>${serie.titulo}</td>
                 <td>${serie.pais}</td>
@@ -63,22 +77,22 @@ const listarSeries = async()=>{
             `
         });
 
-        if(tableBody_series){
+        if (tableBody_series) {
 
-            if(data.series.length > 0){
+            if (data.series.length > 0) {
                 tableBody_series.innerHTML = content
-            }else{
+            } else {
                 tableBody_series.innerHTML = 'NO HAY REGISTROS'
             }
         }
 
-    }catch(ex){
+    } catch (ex) {
         alert(ex)
     }
 }
 
 
-window.addEventListener('load', async () =>{
+window.addEventListener('load', async () => {
     await initDatatable()
 })
 
