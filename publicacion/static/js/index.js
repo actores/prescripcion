@@ -1,30 +1,176 @@
-dataTable = $("#tablaSeries").DataTable({
+let dataTable;
+let dataTableIsInitialized = false;
+
+const dataTableOptions = {
     language: {
-        // url: "static/js/es-Es.json"
-        url: "https://actores.org.co/dev/prescripcion/static/js/es-ES.json"
+        "sProcessing": "Procesando...",
+        "sLengthMenu": "Mostrar _MENU_ registros",
+        "sZeroRecords": "No se encontraron resultados",
+        "sEmptyTable": "Ningún dato disponible en esta tabla",
+        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix": "",
+        "sSearch": "Buscar:",
+        "sUrl": "",
+        "sInfoThousands": ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst": "Primero",
+            "sLast": "Último",
+            "sNext": "Siguiente",
+            "sPrevious": "Anterior"
+        },
+        "oAria": {
+            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        }
+    },
+    columnDefs:[
+        {orderable:false, targets:[2]},
+    ]
+}
+
+const initDatatable = async () =>{
+    if(dataTableIsInitialized){
+        dataTable.destroy();
     }
-});
+
+    await listarSeries();
+    dataTable=$('#tablaSeries').DataTable(dataTableOptions);
+
+    dataTableIsInitialized = true;
+}
+
+const listarSeries = async()=>{
+    try{
+        const response = await fetch('http://127.0.0.1:8000/api/listar/series/');
+        const data = await response.json();
+
+
+        let tableBody_series = document.getElementById('tableBody_series')
+
+        let content = ``;
+        data.series.forEach((serie, index)=>{
+            content+= `
+            <tr>
+                <td>${serie.titulo}</td>
+                <td>${serie.pais}</td>
+                <td>
+                    <a href="detalleExplotacion/${serie.id}" class="btn btn-sm btn-dark">Detalle</a>
+                </td>
+            </tr>
+            `
+        });
+
+        if(tableBody_series){
+
+            if(data.series.length > 0){
+                tableBody_series.innerHTML = content
+            }else{
+                tableBody_series.innerHTML = 'NO HAY REGISTROS'
+            }
+        }
+
+    }catch(ex){
+        alert(ex)
+    }
+}
+
+
+window.addEventListener('load', async () =>{
+    await initDatatable()
+})
+
+
+
+
+// dataTable = $("#tablaSeries").DataTable({
+//     language: {
+//         url: "static/js/es-Es.json"
+//     }
+// });
 
 dataTable = $("#tablaExplotaciones").DataTable({
     language: {
-        // url: "../static/js/es-Es.json"
-        url: "https://actores.org.co/dev/prescripcion/static/js/es-ES.json"
+        "sProcessing": "Procesando...",
+        "sLengthMenu": "Mostrar _MENU_ registros",
+        "sZeroRecords": "No se encontraron resultados",
+        "sEmptyTable": "Ningún dato disponible en esta tabla",
+        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix": "",
+        "sSearch": "Buscar:",
+        "sUrl": "",
+        "sInfoThousands": ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst": "Primero",
+            "sLast": "Último",
+            "sNext": "Siguiente",
+            "sPrevious": "Anterior"
+        },
+        "oAria": {
+            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        }
     }
 });
 
 
 dataTable = $("#tablaNoIdentificados").DataTable({
     language: {
-        // url: "/../static/js/es-Es.json"
-        url: "https://actores.org.co/dev/prescripcion/static/js/es-ES.json"
+        "sProcessing": "Procesando...",
+        "sLengthMenu": "Mostrar _MENU_ registros",
+        "sZeroRecords": "No se encontraron resultados",
+        "sEmptyTable": "Ningún dato disponible en esta tabla",
+        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix": "",
+        "sSearch": "Buscar:",
+        "sUrl": "",
+        "sInfoThousands": ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst": "Primero",
+            "sLast": "Último",
+            "sNext": "Siguiente",
+            "sPrevious": "Anterior"
+        },
+        "oAria": {
+            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        }
     }
 });
 
 
 dataTable = $("#tablaNoSocios").DataTable({
     language: {
-        // url: "/../static/js/es-Es.json"
-        url: "https://actores.org.co/dev/prescripcion/static/js/es-ES.json"
+        "sProcessing": "Procesando...",
+        "sLengthMenu": "Mostrar _MENU_ registros",
+        "sZeroRecords": "No se encontraron resultados",
+        "sEmptyTable": "Ningún dato disponible en esta tabla",
+        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix": "",
+        "sSearch": "Buscar:",
+        "sUrl": "",
+        "sInfoThousands": ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst": "Primero",
+            "sLast": "Último",
+            "sNext": "Siguiente",
+            "sPrevious": "Anterior"
+        },
+        "oAria": {
+            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        }
     }
 });
 

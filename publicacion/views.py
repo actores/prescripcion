@@ -2,6 +2,7 @@ from django.db import connection
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from .models import Serie,Explotacion,Repertorio
+from django.http.response import JsonResponse
 # # from .models import Obra,DetalleObra
 from django.db.models import Q
 
@@ -13,11 +14,19 @@ from django.db.models import Q
 #     })
 
 # Create your views here.
-def listarSeries(request):
-    series = Serie.objects.all()
-    return render(request, "series.html", {
-        'series' : series
-    })
+# def listarSeries(request):
+#     series = Serie.objects.all()
+#     return render(request, "series.html", {
+#         'series' : series
+#     })
+
+def series(request):
+    return render(request, 'series.html')
+
+def apiListarSeries(_request):
+    series = list(Serie.objects.values())
+    data = {'series':series}
+    return JsonResponse(data)
 
 def detalleExplotacion(request, id):
     # Asegúrate de obtener la Serie correctamente
