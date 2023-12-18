@@ -1,0 +1,55 @@
+{% extends "./base.html" %}
+
+{% block title %} Distribuciones {% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row my-5">
+      <div class="col-md-8 offset-md-2">
+
+        <nav aria-label="breadcrumb" style="margin: 5rem 0 4rem;">
+            {% if serie %}
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="/obras/">Obras 2023 y posteriores</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Distribuciones {{ serie.titulo }}</li>
+            </ol>
+            {% endif %}
+        </nav>
+
+        <h1 class="mb-5">Listado de distribuciones</h1>
+        <table class="table" id="tablaDistribuciones">
+            <thead>
+                <tr>
+                    <th scope="col">Año</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for distribucion in distribuciones %}
+                <tr>
+                    <td>{{distribucion.distribucion__anio}}</td>
+                    <td>
+                        {% if distribucion.distribucion__tipo == '1' %}
+                            Nacional
+                        {% else %}
+                            {{ distribucion.distribucion__tipo }}
+                        {% endif %}
+                    </td>
+                    
+                    <td>
+                        <!-- <a href="detalleRepertorio/{{serie.id}}/{{explotacion.0}}/{{explotacion.1}}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important">Detalle</a> -->
+                        <a href="/detalleExplotacion/{{serie.id}}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important">Detalle</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

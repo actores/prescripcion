@@ -3,10 +3,18 @@ from . import views
 
 
 urlpatterns = [
+    
     # path('', views.listarSeries),
-    path('', views.series),
-    path('api/listar/series/', views.apiListarSeries),
-    path('buscarSerie/', views.buscarSerie),
+    path('obras/', views.series),
+    path('obras/anteriores/', views.seriesOld),
+    path('distribuciones/<id>', views.detalleDistribucion, name='detalle_distribucion'),
     path('detalleExplotacion/<id>', views.detalleExplotacion, name='detalle_explotacion'),
-    path('detalleExplotacion/detalleRepertorio/<idSerie>/<cadena>/<anio>', views.detalleRepertorio, name='detalle_repertorio')
+    path('detalleRepertorio/<idSerie>/<cadena>/<anio>', views.detalleRepertorio, name='detalle_repertorio'),
+
+
+    # path('', views.series),
+    path('', views.inicio),
+    path('api/listar/series/', views.apiListarSeries),
+
+
 ]

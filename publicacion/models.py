@@ -40,10 +40,22 @@ class Serie(models.Model):
         texto = "{0} ({1})"
         return texto.format(self.titulo, self.pais)
     
+class Distribucion(models.Model):
+    id = models.AutoField(primary_key=True)
+    anio = models.CharField(max_length=50, verbose_name='Año')
+    tipo = models.CharField(max_length=50, verbose_name='Tipo')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Creado el')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Actualizado el')
+
+    def __str__(self):
+        texto = "{0} - {1}"
+        return texto.format(self.anio, self.tipo)
+    
 class Explotacion(models.Model):
     cadena = models.CharField(max_length=50, verbose_name='Cadena')
     anio = models.CharField(max_length=50, verbose_name='Año')
     serie = models.ForeignKey('Serie', on_delete=models.CASCADE, related_name='explotacion_serie')
+    distribucion = models.ForeignKey('Distribucion', on_delete=models.CASCADE, related_name='explotacion_distribucion', null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Creado el')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Actualizado el')
 
@@ -63,5 +75,15 @@ class Repertorio(models.Model):
 
     def __str__(self):
         texto = "{0}"
-        return texto.format(self.tituloCapitulo
-    )
+        return texto.format(self.tituloCapitulo)
+
+
+class RepertorioOld(models.Model):
+    titulo = models.CharField(max_length=255, verbose_name='Título')
+    archivo = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Creado el')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Actualizado el')
+
+    def __str__(self):
+        texto = "{0}"
+        return texto.format(self.tituloCapitulo)

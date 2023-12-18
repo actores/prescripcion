@@ -14,10 +14,13 @@
             <nav aria-label="breadcrumb" style="margin: 5rem 0 4rem;">
                 {% if serie %}
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Series</a></li>
+                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="/obras/">Obras 2023 y posteriores</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> <a
-                            href="/detalleExplotacion/{{serie.id}}">Explotaciones {{ serie.titulo }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Repertorio</li>
+                        href="/distribuciones/{{serie.id}}">Distribuciones</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> <a
+                            href="/detalleExplotacion/{{serie.id}}">Explotaciones</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Repertorio  {{ cadena}} - {{ anio}}</li>
                 </ol>
                 {% endif %}
             </nav>

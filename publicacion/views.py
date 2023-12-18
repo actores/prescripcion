@@ -1,7 +1,7 @@
 from django.db import connection
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
-from .models import Serie,Explotacion,Repertorio
+from .models import Serie,Explotacion,Repertorio,Distribucion,RepertorioOld
 # # from .models import Obra,DetalleObra
 from django.db.models import Q
 from django.http.response import JsonResponse
@@ -20,13 +20,40 @@ from django.http.response import JsonResponse
 #         'series' : series
 #     })
 
+def inicio(request):
+    return render(request, 'index.html')
+
+
 def series(request):
     return render(request, 'series.html')
 
+def seriesOld(request):
+    seriesOld = RepertorioOld.objects.all()
+    return render(request, 'seriesOld.html', {
+        'seriesOld' : seriesOld
+    })
+
 def apiListarSeries(_request):
     series = list(Serie.objects.values())
-    data = {'series':series}
+    seriesOld = list(RepertorioOld.objects.values())
+    data = {
+        'series':series,
+        'seriesOld' : seriesOld
+        }
     return JsonResponse(data)
+
+def detalleDistribucion(request,id):
+    serie = get_object_or_404(Serie, id=id)
+    distribuciones = (
+        Explotacion.objects
+        .filter(serie_id=36811)
+        .values('distribucion_id', 'distribucion__anio', 'distribucion__tipo')
+        .distinct()
+    )
+    return render(request, "distribuciones.html", {
+        "distribuciones" : distribuciones,
+        "serie": serie
+    })
 
 def detalleExplotacion(request, id):
     # Asegúrate de obtener la Serie correctamente
@@ -101,7 +128,9 @@ def detalleRepertorio(request, idSerie, cadena, anio):
     return render(request, "repertorio.html", {
         'serie': serie,
         'noIdentificados':noIdentificados,
-        'noSocios': noSocios
+        'noSocios': noSocios,
+        'cadena' : cadena,
+        'anio' : anio
     })
 # def detalleObra(request, id):
 #     detallado = DetalleObra.objects.filter(obra_id=id)

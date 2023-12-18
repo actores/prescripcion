@@ -1,0 +1,45 @@
+{% extends "./base.html" %}
+
+{% block title %} Distribuciones {% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row my-5">
+      <div class="col-md-10 offset-md-1">
+
+        <nav aria-label="breadcrumb" style="margin: 5rem 0 4rem;">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item" aria-current="page"> Obras 2022 y anteriores</li>
+            </ol>
+        </nav>
+
+        <h1 class="mb-5">Listado de obras</h1>
+        <table class="table" id="series_old">
+            <thead>
+                <tr>
+                    <th scope="col">Título</th>
+                    <th scope="col">Publicado</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for serie in seriesOld %}
+                <tr>
+                    <td>{{serie.titulo}}</td>
+                    <td>{{serie.created_at}}</td>
+                    <td>
+                        <!-- <a href="detalleRepertorio/{{serie.id}}/{{explotacion.0}}/{{explotacion.1}}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important">Detalle</a> -->
+                        <a href="https://www.actores.org.co/backend/public/archivos/no_identificados/{{serie.archivo}}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important" target="_blank">Ver PDF</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
