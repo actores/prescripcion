@@ -2,44 +2,126 @@
 
 {% block title %} Obras 2022 y anteriores {% endblock %}
 
+{% block css %} 
+<link rel="stylesheet" href="https://actores.org.co/dev/prescripcion/static/assets/styles/styles_002.css">
+{% endblock %}
+
 {% block body %}
 
 
-<div class="container">
-    <div class="row my-5">
-      <div class="col-md-10 offset-md-1">
+<main class="main">
+    <div class="container">
 
-        <nav aria-label="breadcrumb" style="margin: 5rem 0 4rem;">
+
+        <nav aria-label="breadcrumb" class="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="/">Inicio</a></li>
-                <li class="breadcrumb-item" aria-current="page"> Obras 2022 y anteriores</li>
+                <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
+                <li class="breadcrumb-item" aria-current="page">Obras 2022 y anteriores</li>
             </ol>
         </nav>
 
-        <h1 class="mb-5">Listado de obras</h1>
-        <table class="table" id="series_old">
-            <thead>
-                <tr>
-                    <th scope="col">Título</th>
-                    <th scope="col">Publicado</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for serie in seriesOld %}
-                <tr>
-                    <td>{{serie.titulo}}</td>
-                    <td>{{serie.created_at}}</td>
-                    <td>
-                        <!-- <a href="detalleRepertorio/{{serie.id}}/{{explotacion.0}}/{{explotacion.1}}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important">Detalle</a> -->
-                        <a href="https://www.actores.org.co/backend/public/archivos/no_identificados/{{serie.archivo}}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important" target="_blank">Ver PDF</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-      </div>
+
+        <section class="section__one">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="title__main">2022 <span>Y ANTERIORES</span></h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="section__two">
+            <div class="row">
+                <h2 class="subtitle__main my-5">ENCUENTRA FÁCIL</h2>
+
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>1</span>
+                            <span>BUSCA LA OBRA</span>
+                        </div>
+                        <p>
+                            <span>Escribe el nombre de la obra</span> en la casilla de búsqueda y dale <span>clic en ver
+                                PDF</span>
+                            una vez que te aparezca en
+                            los resultados
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>2</span>
+                            <span>BUSCA <br> NO IDENTIFICADOS</span>
+                        </div>
+                        <p>
+                            Busca en la columna izquierda entre la lista de no identificados de la obra seleccionada
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>3</span>
+                            <span>BUSCA NO SOCIOS <br> IDENTIFICADOS</span>
+                        </div>
+                        <p>
+                            Busca en la columna derecha entre la lista de no socios identificados de la obra
+                            seleccionada
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>4</span>
+                            <span>¡LISTO! LO <br> ENCONTRASTE</span>
+                        </div>
+                        <p>
+                            Puedes repetir la búsqueda por cada obra que deseas consultar siguiendo estos pasos
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</div>
+    <footer class="section__three">
+        <div class="container">
+            <div class="row">
+                <div class="contend__title__section">
+                    <h2 class="subtitle__main">CONSULTAS</h2>
+                </div>
+
+
+                <table class="table" id="test">
+                    <thead>
+                        <tr>
+                            <th scope="col">Título</th>
+                            <th scope="col">Publicado</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for serie in seriesOld %}
+                        <tr>
+                            <td>{{serie.titulo}}</td>
+                            <td>@{{serie.created_at}}</td>
+                            <td><a href="https://www.actores.org.co/backend/public/archivos/no_identificados/{{serie.archivo}}"
+                                    target="_blank" class="btn_step btn btn-sm">Detalle</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+            </div>
+            <div class="logo_footer">
+                <img src="https://actores.org.co/dev/prescripcion/static/assets/img/logo/logo_footer.png" alt="">
+            </div>
+
+        </div>
+    </footer>
+
+
+</main>
 
 {% endblock %}
