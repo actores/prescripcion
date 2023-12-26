@@ -41,7 +41,7 @@ const initDatatable = async () => {
 
     await listarSeries();
     dataTable = $('#tablaSeries').DataTable(dataTableOptions);
-   
+
     dataTableIsInitialized = true;
 
     setTimeout(() => {
@@ -65,11 +65,10 @@ const listarSeries = async () => {
             content += `
             <tr>
                 <td>${serie.titulo.toUpperCase()}</td>
-                <td>${serie.pais.toUpperCase()}</td>
-                <td>
-                    <a href="/distribuciones/${serie.id}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important">Detalle</a>
-                </td>
+                <td>@${serie.pais.toUpperCase()}</td>
+                <td><a href="/distribuciones/${serie.id}" class="btn_step btn btn-sm" style="background-color: #ED7D31 !important">Detalle</a></td>
             </tr>
+
             `
         });
 
