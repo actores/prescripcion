@@ -1,17 +1,135 @@
 {% extends "./base.html" %}
 
-{% block title %} Obras 2023 y posteriores {% endblock %}
+{% block title %} 2022 Y POSTERIORES | OBRAS {% endblock %}
 
 {% block body %}
 
-<div class="card d-flex justify-content-center align-items-center border-0"
+
+<main class="main">
+    <div class="container">
+
+        <nav aria-label="breadcrumb" class="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
+                <li class="breadcrumb-item" aria-current="page">Obras 2023 y posteriores</li>
+            </ol>
+        </nav>
+
+        <section class="section__one">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1 class="title__main">2023 <span>Y POSTERIORES</span></h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="section__two">
+            <div class="row">
+                <h2 class="subtitle__main my-5">ENCUENTRA FÁCIL</h2>
+
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>1</span>
+                            <span>BUSCA LA OBRA</span>
+                        </div>
+                        <p>
+                            <span>Escribe el nombre de la obra</span> en la casilla de búsqueda y dale <span>clic en
+                                detalle</span>
+                            una vez que te aparezca en los resultados
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>2</span>
+                            <span>ELIJE LA <br> DISTRIBUCIÓN</span>
+                        </div>
+                        <p>
+                            Selecciona la distribución que quieres consultar haciendo <span>clic en detalle</span>.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>3</span>
+                            <span>ELIJE LA <br> EXPLOTACIÓN</span>
+                        </div>
+                        <p>
+                            Selecciona el periodo de explotación que quieres consultar de la distribución seleccionada
+                            anteriormente
+                            haciendo nuevamente <span>clic en detalle</span>.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>4</span>
+                            <span>¡LISTO! LO <br> ENCONTRASTE</span>
+                        </div>
+                        <p>
+                            Selecciona la pestaña que corresponda a la categoría de artista que quieres consultar entre
+                            “No
+                            Identificados” y “No Socios” para ver la información
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="section__three">
+        <div class="container">
+            <div class="row">
+                <div class="contend__title__section">
+                    <h2 class="subtitle__main">CONSULTAS</h2>
+
+                    <nav aria-label="breadcrumb" class="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Obras 2023 y posteriores</li>
+                        </ol>
+                    </nav>
+
+
+                    <h4 class="title_table my-3">LISTADO DE OBRAS</h4>
+                </div>
+
+
+                <table class="table" id="tablaSeries">
+                    <thead>
+                        <tr>
+                            <th scope="col">Título</th>
+                            <th scope="col">País</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody_series"></tbody>
+                </table>
+
+
+            </div>
+            <div class="logo_footer">
+                <img src="./assets/img/logo/logo_footer.png" alt="">
+            </div>
+
+        </div>
+    </footer>
+
+
+</main>
+
+
+<!-- <div class="card d-flex justify-content-center align-items-center border-0"
     style="position: absolute; top:0; width: 100vw; height: 100vh; color: #ED7D31;" id="loader">
     <div class="spinner-border m-5" role="status">
         <span class="visually-hidden">Cargando series...</span>
     </div>
-</div>
+</div> -->
 
-<div class="container">
+<!-- <div class="container">
     <div class="row my-5" id="contenedorPrincipalSeries">
         <div class="col-md-8 offset-md-2">
 
@@ -40,6 +158,6 @@
             </table>
         </div>
     </div>
-</div>
+</div> -->
 
 {% endblock %}
