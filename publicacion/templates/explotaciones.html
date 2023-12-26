@@ -4,48 +4,129 @@
 
 {% block body %}
 
+<main class="main">
+    <div class="container">
+        <section class="section__one">
+            <div class="row mt-5">
+                <div class="col-md-7">
+                    <h1 class="title__main">2023 <span>Y POSTERIORES</span></h1>
+                </div>
+            </div>
+        </section>
 
-<div class="container">
-    <div class="row my-5">
-      <div class="col-md-8 offset-md-2">
+        <section class="section__two">
+            <div class="row">
+                <h2 class="subtitle__main my-5">ENCUENTRA FÁCIL</h2>
 
-        <nav aria-label="breadcrumb" style="margin: 5rem 0 4rem;">
-            {% if serie %}
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="/obras/">Obras 2023 y posteriores</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> <a
-                    href="/distribuciones/{{serie.id}}">Distribuciones</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Explotaciones {{ serie.titulo }}</li>
-            </ol>
-            {% endif %}
-        </nav>
-
-        <h1 class="mb-5">Listado de explotaciones</h1>
-        <table class="table" id="tablaExplotaciones">
-            <thead>
-                <tr>
-                    <th scope="col">Cadena</th>
-                    <th scope="col">Año</th>
-                    <th scope="col">Publicación</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for explotacion in explotaciones %}
-                <tr>
-                    <td>{{explotacion.0}}</td>
-                    <td>{{explotacion.1}}</td>
-                    <td>{{explotacion.2}}</td>
-                    <td>
-                        <a href="/detalleRepertorio/{{serie.id}}/{{explotacion.0}}/{{explotacion.1}}" class="btn btn-sm text-white" style="background-color: #ED7D31 !important">Detalle</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-      </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>1</span>
+                            <span>BUSCA LA OBRA</span>
+                        </div>
+                        <p>
+                            <span>Escribe el nombre de la obra</span> en la casilla de búsqueda y dale <span>clic en
+                                detalle</span> una vez que te aparezca en los resultados
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>2</span>
+                            <span>ELIJE LA <br> DISTRIBUCIÓN</span>
+                        </div>
+                        <p>
+                            Selecciona la distribución que quieres consultar haciendo <span>clic en detalle</span>.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>3</span>
+                            <span>ELIJE LA <br> EXPLOTACIÓN</span>
+                        </div>
+                        <p>
+                            Selecciona el periodo de explotación que quieres consultar de la distribución seleccionada
+                            anteriormente
+                            haciendo nuevamente <span>clic en detalle</span>.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card__item">
+                        <div class="group_title_item">
+                            <span>4</span>
+                            <span>¡LISTO! LO <br> ENCONTRASTE</span>
+                        </div>
+                        <p>
+                            Selecciona la pestaña que corresponda a la categoría de artista que quieres consultar entre
+                            “No
+                            Identificados” y “No Socios” para ver la información
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</div>
+    <footer class="section__three">
+        <div class="container">
+            <div class="row">
+                <div class="contend__title__section">
+                    <h2 class="subtitle__main">CONSULTAS</h2>
+
+                    <nav aria-label="breadcrumb" class="breadcrumb">
+                        {% if serie %}
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="/obras/">Obras 2023 y
+                                    posteriores</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a
+                                    href="/distribuciones/{{serie.id}}">Distribuciones</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Explotaciones</li>
+                        </ol>
+                        {% endif %}
+                    </nav>
+
+
+
+                    <h4 class="title_table my-3">LISTADO DE EXPLOTACIONES</h4>
+                </div>
+
+
+                <table class="table" id="test">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cadena</th>
+                            <th scope="col">Año</th>
+                            <th scope="col">Publicacion</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for explotacion in explotaciones %}
+                        <tr>
+                            <td>Canar Caracol</td>
+                            <td>@2017</td>
+                            <td>@Nov. 24, 2023, 8:05 p.m.</td>
+                            <td><a href="/detalleRepertorio/{{serie.id}}/{{explotacion.0}}/{{explotacion.1}}" class="btn_step btn btn-sm">Detalle</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+            </div>
+            <div class="logo_footer">
+                <img src="https://actores.org.co/dev/prescripcion/static/assets/img/logo/logo_footer.png" alt="">
+            </div>
+
+        </div>
+    </footer>
+
+
+</main>
+
 
 {% endblock %}
