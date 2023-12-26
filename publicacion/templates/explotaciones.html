@@ -107,9 +107,9 @@
                     <tbody>
                         {% for explotacion in explotaciones %}
                         <tr>
-                            <td>Canar Caracol</td>
-                            <td>@2017</td>
-                            <td>@Nov. 24, 2023, 8:05 p.m.</td>
+                            <td>{{explotacion.2}}</td>
+                            <td>{{explotacion.3}}</td>
+                            <td>{{explotacion.4}}</td>
                             <td><a href="/detalleRepertorio/{{serie.id}}/{{explotacion.0}}/{{explotacion.1}}" class="btn_step btn btn-sm">Detalle</a></td>
                         </tr>
                         {% endfor %}
