@@ -1,0 +1,271 @@
+@import url('./normalize.css');
+
+:root {
+
+    /*color palette*/
+    --primary-color: #F9F9F9;
+    --secondary-color: #FFFFFF;
+    --tertiary-color: #FFE59B;
+    --quaternary-color: #FFC10E;
+    --quinary-color: #00B6A4;
+    --senary-color: #652D90;
+    --septenary-color: #EB008B;
+    --octonary-color: #565656;
+    --nonary-color: #000000;
+    --denary-color: #F5F5F5;
+    --eleventh-color:#EE4028;
+
+    /*size font styles*/
+    --light: 300;
+    --regular: 400;
+    --medium: 500;
+    --semiBold: 600;
+    --bold: 700;
+    --black: 900;
+
+    /*size font*/
+    --font-size: 16px;
+
+}
+
+/* Fuente Montserrat - Light */
+@font-face {
+    font-family: 'Montserrat-light';
+    src: url('../fonts/Montserrat/Montserrat-Light.woff2') format('woff2'),
+        url('../fonts/Montserrat/Montserrat-Light.woff') format('woff');
+}
+
+/* Fuente Montserrat - Regular */
+@font-face {
+    font-family: 'Montserrat-regular';
+    src: url('../fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'),
+        url('../fonts/Montserrat/Montserrat-Regular.woff') format('woff');
+}
+
+/* Fuente Montserrat - Medium */
+@font-face {
+    font-family: 'Montserrat-medium';
+    src: url('../fonts/Montserrat/Montserrat-Medium.woff2') format('woff2'),
+        url('../fonts/Montserrat/Montserrat-Medium.woff') format('woff');
+}
+
+/* Fuente Montserrat - SemiBold */
+@font-face {
+    font-family: 'Montserrat-semiBold';
+    src: url('../fonts/Montserrat/Montserrat-SemiBold.woff2') format('woff2'),
+        url('../fonts/Montserrat/Montserrat-SemiBold.woff') format('woff');
+}
+
+/* Fuente Montserrat - Bold */
+@font-face {
+    font-family: 'Montserrat-bold';
+    src: url('../fonts/Montserrat/Montserrat-Bold.woff2') format('woff2'),
+        url('../fonts/Montserrat/Montserrat-Bold.woff') format('woff');
+}
+
+/* Fuente Montserrat - Black */
+@font-face {
+    font-family: 'Montserrat-black';
+    src: url('../fonts/Montserrat/Montserrat-Black.woff2') format('woff2'),
+        url('../fonts/Montserrat/Montserrat-Black.woff') format('woff');
+}
+
+.container {
+    max-width: 1100px;
+}
+
+.navbar {
+    background-color: var(--quaternary-color);
+}
+
+.navbar .nav_actores{
+    color: var(--nonary-color) !important;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section__one {
+    margin-top: 1rem;
+}
+
+.section__one .title__main {
+    font-family: 'Montserrat-black';
+    font-size: 4rem;
+    line-height: 3.5rem;
+    color: var(--quinary-color);
+    margin-bottom: 8px;
+}
+
+.section__one .title__main span {
+    display: block;
+}
+
+.section__one .description__section__one {
+    font-size: 1rem;
+    color: var(--senary-color);
+    font-family: 'Montserrat-light';
+}
+
+.section__two {
+    text-align: center;
+    margin: 3rem 0 6rem 0;
+}
+
+.section__two .subtitle__main {
+    font-family: 'Montserrat-black';
+    font-size: 2rem;
+    color: var(--senary-color);
+}
+
+.section__two .descripcion__section__two {
+    font-family: 'Montserrat-regular';
+    font-size: .9rem;
+    color: var(--octonary-color);
+}
+
+.section__two .group__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.section__two .group__buttons .button__year {
+    width: 200px;
+    height: 150px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    border-radius: 3.5rem;
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.17);
+    -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.17);
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.17);
+    background-color: var(--denary-color);
+}
+
+
+
+.section__two .group__buttons .button__year:hover {
+    background-color: var(--senary-color);
+}
+
+.section__two .group__buttons .button__year:hover .title__button {
+    color: var(--secondary-color);
+}
+
+.section__two .group__buttons .button__year .title__button {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    color: var(--senary-color);
+    font-family: 'Montserrat-black';
+    line-height: 2rem;
+}
+
+.section__two .group__buttons .button__year .title__button span:first-child {
+    font-size: 3.2rem;
+}
+
+
+.section__three {
+    background-color: var(--primary-color);
+    padding-top: 6rem;
+}
+
+.section__three .contend__title__section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section__three .subtitle__main {
+    font-family: 'Montserrat-black';
+    font-size: 2rem;
+    color: var(--senary-color);
+}
+
+.section__three .descripcion__section__two {
+    font-family: 'Montserrat-regular';
+    font-size: .9rem;
+    color: var(--octonary-color);
+}
+
+.section__three .sutitle_section_column {
+    font-family: 'Montserrat-regular';
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.section__three .items_section_column {
+    font-family: 'Montserrat-light';
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.section__three .footer__section__one {
+    margin-top: 4rem;
+}
+
+.section__three .footer__section__two {
+    margin-top: 4rem;
+    max-width: 70%;
+    margin-top: 8rem;
+}
+
+.section__three .footer__section__two .descripcion__section__two span {
+    font-family: 'Montserrat-semiBold';
+}
+
+.section__three .logo_footer {
+    text-align: center;
+    margin: 10rem 0 0 0;
+    padding-bottom: 4rem;
+}
+
+
+
+@media screen and (max-width: 430px) {
+
+    .section__one {
+        margin-top: 2.6rem;
+    }
+
+    .section__one .title__main {
+        font-size: 2.1rem;
+    }
+
+    .section__two .group__buttons .button__year {
+        width: 200px;
+        height: 150px;
+        text-decoration: none;
+        color: var(--secondary-color);
+        border-radius: 2.5rem;
+        -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.17);
+        -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.17);
+        box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.17);
+        background-color: var(--denary-color);
+    }
+
+    .section__two .group__buttons .button__year .title__button span:first-child {
+        font-size: 2.5rem;
+    }
+
+    .section__two .group__buttons .button__year .title__button span:nth-child(2) {
+        font-size: 0.9rem;
+    }
+
+    .footer__section__one [class^="col-"]{
+        margin-bottom: 2rem;
+    }
+
+    .section__three .footer__section__two {
+        max-width: 100%;
+    }
+    
+}
