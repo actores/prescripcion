@@ -108,7 +108,7 @@
                         {% for explotacion in explotaciones %}
                         <tr>
                             <td>{{explotacion.0}}</td>
-                            <td>{{explotacion.1}}</td>
+                            <td>{{explotacion.1|floatformat:0}}</td>
                             <td>{{explotacion.2}}</td>
                             <td><a href="/detalleRepertorio/{{serie.id}}/{{explotacion.0}}/{{explotacion.1}}" class="btn_step btn btn-sm">Detalle</a></td>
                         </tr>
