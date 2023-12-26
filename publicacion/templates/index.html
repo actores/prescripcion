@@ -4,52 +4,115 @@
 
 {% block body %}
 
-<div class="container" style="padding-top: 8rem;">
-    <div class="row" style="text-align: justify;">
-        <h3>Lorem ipsum dolor sit amet consectetur.</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut, ea vero corrupti necessitatibus debitis
-            veritatis iusto ducimus nemo aspernatur nam numquam? Ratione quo quasi nam totam perspiciatis obcaecati
-            harum iusto rem. Veritatis aliquid itaque, iste fugiat similique atque dolorem quis reprehenderit placeat
-            dignissimos omnis nobis dicta modi totam optio officiis provident impedit, eius soluta, consequatur eaque
-            sunt ad quo. Eius cumque pariatur voluptatum ducimus placeat, cum nulla ab amet assumenda sunt iusto
-            praesentium hic quis, ut dolores facere delectus voluptate neque necessitatibus, fuga reprehenderit
-            accusantium. Expedita, delectus aspernatur, cumque minus repudiandae voluptatum esse voluptatibus ipsam aut
-            saepe voluptatem voluptas explicabo?</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut, ea vero corrupti necessitatibus debitis
-            veritatis iusto ducimus nemo aspernatur nam numquam? Ratione quo quasi nam totam perspiciatis obcaecati
-            harum iusto rem. Veritatis aliquid itaque, iste fugiat similique atque dolorem quis reprehenderit placeat
-            dignissimos omnis nobis dicta modi totam optio officiis provident impedit, eius soluta, consequatur eaque
-            sunt ad quo. Eius cumque pariatur voluptatum ducimus placeat, cum nulla ab amet assumenda sunt iusto
-            praesentium hic quis, ut dolores facere delectus voluptate neque necessitatibus, fuga reprehenderit
-            accusantium. Expedita, delectus aspernatur, cumque minus repudiandae voluptatum esse voluptatibus ipsam aut
-            saepe voluptatem voluptas explicabo?</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut, ea vero corrupti necessitatibus debitis
-            veritatis iusto ducimus nemo aspernatur nam numquam? Ratione quo quasi nam totam perspiciatis obcaecati
-            harum iusto rem. Veritatis aliquid itaque, iste fugiat similique atque dolorem quis reprehenderit placeat
-            dignissimos omnis nobis dicta modi totam optio officiis provident impedit, eius soluta, consequatur eaque
-            sunt ad quo. Eius cumque pariatur voluptatum ducimus placeat, cum nulla ab amet assumenda sunt iusto
-            praesentium hic quis, ut dolores facere delectus voluptate neque necessitatibus, fuga reprehenderit
-            accusantium. Expedita, delectus aspernatur, cumque minus repudiandae voluptatum esse voluptatibus ipsam aut
-            saepe voluptatem voluptas explicabo?</p>
-    </div>
-    <div class="row">
-        <div class="container-card">
-            <a href="/obras/anteriores/" class="nav-link mb-2">
-                <div class="card">
-                    <div class="card-body">
-                        2022 y anteriores
-                    </div>
-                </div>
-            </a>
-            <a href="/obras/" class="nav-link">
-                <div class="card">
-                    <div class="card-body">
-                        2023 y posteriores
-                    </div>
-                </div>
-            </a>
+
+<main class="main">
+    <div class="container">
+      <section class="section__one">
+        <div class="row mt-5">
+          <div class="col-md-6">
+            <h1 class="title__main">MÓDULO <span>PRESCRIPCIÓN</span></h1>
+            <p class="description__section__one">Esta herramienta fue creada para los socios, actores audiovisuales y de
+              doblaje
+              no afiliados y titulares fallecidos con el propósito de facilitar la consulta de los listados de obras
+              distribuidas en ACTORES S.C.G.</p>
+          </div>
         </div>
+      </section>
+
+      <section class="section__two">
+        <div class="row">
+          <h2 class="subtitle__main">ELIJE PERIODO</h2>
+          <p class="descripcion__section__two">Selecciona el periodo correspondiente a la obra que estás buscando</p>
+
+          <div class="group__buttons mt-4">
+            <a href="/obras/anteriores/" class="button__year">
+              <p class="title__button">
+                <span>2022</span>
+                <span>Y ANTERIORES</span>
+              </p>
+            </a>
+            <a href="/obras/" class="button__year">
+              <p class="title__button">
+                <span>2023</span>
+                <span>Y POSTERIORES</span>
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
-</div>
+    <footer class="section__three">
+      <div class="container">
+        <div class="row">
+          <div class="contend__title__section">
+            <h2 class="subtitle__main">APRECIAMOS TU AYUDA</h2>
+            <p class="descripcion__section__two">Contáctanos si tienes algunos de los siguientes casos</p>
+          </div>
+        </div>
+
+        <div class="row footer__section__one">
+          <div class="col-md-4">
+            <span class="sutitle_section_column">
+              <span>Reconoces el nombre de</span>
+              <span>pila de un personaje</span>
+              <span>No Identificado</span>
+            </span>
+            <div class="items_section_column d-flex flex-column  align-items-start ">
+              <span>Contáctanos</span>
+              <span>📧 reclamaciones@actores.org.co</span>
+              <span>📞 555 2780/81/82</span>
+              <span>📞 313 861 4710</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <span class="sutitle_section_column">
+              <span>Apareces en el listado</span>
+              <span>de No Socio</span>
+            </span>
+            <div class="items_section_column d-flex flex-column  align-items-start ">
+              <span>Contáctanos</span>
+              <span>📧 reclamaciones@actores.org.co</span>
+              <span>📞 555 2780/81/82</span>
+              <span>📞 313 861 4710</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <span class="sutitle_section_column">
+              <span>Tu familiar se encuentra </span>
+              <span>en el listado de Titulares</span>
+              <span>Fallecidos</span>
+            </span>
+            <div class="items_section_column d-flex flex-column  align-items-start ">
+              <span>Contáctanos</span>
+              <span>📧 reclamaciones@actores.org.co</span>
+              <span>📞 555 2780/81/82</span>
+              <span>📞 313 861 4710</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="container footer__section__two">
+          <div class="row">
+            <div class="contend__title__section">
+              <h2 class="subtitle__main">⚠️ RECUERDA</h2>
+              <p class="descripcion__section__two">Según el Artículo 34 de la ley 1915 de 2018 las obras o prestaciones
+                <span>no identificadas tienen un periodo de prescripción de 3 años,</span> mientras que las
+                <span>cantidades que no hayan
+                  podido ser entregadas al titular identificado, prescriben a los 10 años.</span>
+              </p>
+              <p class="descripcion__section__two">Los términos de prescripción anteriormente mencionados se
+                contabilizaran desde el momento de notificación y aplica la trazabilidad a sus herederos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="logo_footer">
+          <img src="./assets/img/logo/logo_footer.png" alt="">
+        </div>
+
+      </div>
+    </footer>
+
+
+  </main>
 
 {% endblock %}
