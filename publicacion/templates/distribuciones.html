@@ -104,9 +104,9 @@
                             <td>{{distribucion.distribucion__anio}}</td>
                             <td>
                                 {% if distribucion.distribucion__tipo == '1' %}
-                                @Nacional
+                                Nacional
                                 {% else %}
-                                @{{ distribucion.distribucion__tipo }}
+                                {{ distribucion.distribucion__tipo }}
                                 {% endif %}
                             </td>
                             <td><a href="/detalleExplotacion/{{serie.id}}" class="btn_step btn btn-sm">Detalle</a></td>
