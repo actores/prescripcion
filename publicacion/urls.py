@@ -14,7 +14,7 @@ urlpatterns = [
 
     # path('', views.series),
     path('', views.inicio),
-    path('api/listar/series/', views.apiListarSeries),
+    
 
 
 ]
