@@ -13,12 +13,12 @@ from django.http.response import JsonResponse
 #         'obras': obras
 #     })
 
-# # Create your views here.
-# def listarSeries(request):
-#     series = Serie.objects.all()
-#     return render(request, "series.html", {
-#         'series' : series
-#     })
+# Create your views here.
+def listarSeries(request):
+    series = Serie.objects.all()
+    return render(request, "series.html", {
+        'series' : series
+    })
 
 def inicio(request):
     return render(request, 'index.html')
@@ -34,13 +34,16 @@ def seriesOld(request):
     })
 
 def apiListarSeries(_request):
-    series = list(Serie.objects.values())
-    seriesOld = list(RepertorioOld.objects.values())
+    # series = list(Serie.objects.values())
+    # seriesOld = list(RepertorioOld.objects.values())
+
+    series = Serie.objects.all()
     data = {
         'series':series,
         'seriesOld' : seriesOld
         }
     return JsonResponse(data)
+
 
 def detalleDistribucion(request,id):
     serie = get_object_or_404(Serie, id=id)
