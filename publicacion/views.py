@@ -24,8 +24,8 @@ def inicio(request):
     return render(request, 'index.html')
 
 
-def series(request):
-    return render(request, 'series.html')
+# def series(request):
+#     return render(request, 'series.html')
 
 def seriesOld(request):
     seriesOld = RepertorioOld.objects.all()
@@ -33,7 +33,7 @@ def seriesOld(request):
         'seriesOld' : seriesOld
     })
 
-def apiListarSeries(request):
+def series(request):
     # series = list(Serie.objects.values())
     # seriesOld = list(RepertorioOld.objects.values())
     series = Serie.objects.all()
