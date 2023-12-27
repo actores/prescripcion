@@ -33,16 +33,21 @@ def seriesOld(request):
         'seriesOld' : seriesOld
     })
 
-def apiListarSeries(_request):
+def apiListarSeries(request):
     # series = list(Serie.objects.values())
     # seriesOld = list(RepertorioOld.objects.values())
-
     series = Serie.objects.all()
-    data = {
+    seriesOld = RepertorioOld.objects.all()
+
+    # data = {
+    #     'series':series,
+    #     'seriesOld' : seriesOld
+    #     }
+    # return JsonResponse(data)
+    return render(request, 'series.html', {
         'series':series,
         'seriesOld' : seriesOld
-        }
-    return JsonResponse(data)
+    })
 
 
 def detalleDistribucion(request,id):
