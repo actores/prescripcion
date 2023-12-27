@@ -4,7 +4,7 @@ from django.shortcuts import render
 from .models import Serie,Explotacion,Repertorio,Distribucion,RepertorioOld
 # # from .models import Obra,DetalleObra
 from django.db.models import Q
-from django.http.response import JsonResponse
+# from django.http.response import JsonResponse
 
 # # Create your views here.
 # def home(request):
