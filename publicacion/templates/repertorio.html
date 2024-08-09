@@ -107,6 +107,9 @@
                     <li class="nav-item">
                         <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#content2">ARTISTAS NO SOCIOS</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab3" data-bs-toggle="tab" href="#content3">ARTISTAS FALLECIDOS</a>
+                    </li>
                 </ul>
 
 
@@ -135,6 +138,26 @@
                     </div>
                     <div id="content2" class="tab-pane fade">
                         <table class="table" id="tablaNoSocios">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Personaje</th>
+                                    <th scope="col">Actor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ns in noSocios %}
+                                {% if ns.numeroActor != '0' %}
+                                <tr>
+                                    <td>{{ns.personaje}}</td>
+                                    <td>{{ns.nombreActor}}</td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="content3" class="tab-pane fade">
+                        <table class="table" id="tablaFallecidos">
                             <thead>
                                 <tr>
                                     <th scope="col">Personaje</th>
