@@ -144,7 +144,8 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         'noIdentificados':noIdentificados,
         'noSocios': noSocios,
         'cadena' : cadena,
-        'anio' : anio
+        'anio' : anio,
+        'fallecidos' : fallecidos
     })
 # def detalleObra(request, id):
 #     detallado = DetalleObra.objects.filter(obra_id=id)
