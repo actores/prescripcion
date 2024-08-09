@@ -107,6 +107,12 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         numeroActor__gt=0  # Filtro para obtener resultados donde numeroActor sea diferente de 0
     ).values('personaje', 'nombreActor').distinct()
     
+    fallecidos = Repertorio.objects.filter(
+        explotacion__serie_id=idSerie,
+        explotacion__cadena=cadena,
+        explotacion__anio=anio,
+        numeroActor='F'
+    ).values('personaje', 'nombreActor').distinct()
 
 
     # sql_query = """

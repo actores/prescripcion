@@ -165,11 +165,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for ns in noSocios %}
-                                {% if ns.numeroActor != '0' %}
+                                {% for f in fallecidos %}
+                                {% if f.numeroActor != '0' %}
                                 <tr>
-                                    <td>{{ns.personaje}}</td>
-                                    <td>{{ns.nombreActor}}</td>
+                                    <td>{{f.personaje}}</td>
+                                    <td>{{f.nombreActor}}</td>
                                 </tr>
                                 {% endif %}
                                 {% endfor %}
