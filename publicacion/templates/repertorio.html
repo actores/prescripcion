@@ -168,12 +168,11 @@
                             </thead>
                             <tbody>
                                 {% for f in fallecidos %}
-                                {% if f.numeroActor != '0' %}
+                               
                                 <tr>
                                     <td>{{f.personaje}}</td>
                                     <td>{{f.nombreActor}}</td>
                                 </tr>
-                                {% endif %}
                                 {% endfor %}
                             </tbody>
                         </table>

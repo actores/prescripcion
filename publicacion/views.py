@@ -104,7 +104,7 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         explotacion__serie_id=idSerie,
         explotacion__cadena=cadena,
         explotacion__anio=anio,
-        numeroActor__gt=0  # Filtro para obtener resultados donde numeroActor sea diferente de 0
+        Q(numeroActor__gt=0) & ~Q(numeroActor='F')  # Filtro para obtener resultados donde numeroActor sea mayor a 0 y diferente de F
     ).values('personaje', 'nombreActor').distinct()
     
     fallecidos = Repertorio.objects.filter(
