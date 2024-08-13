@@ -104,12 +104,14 @@ def detalleRepertorio(request, idSerie, cadena, anio):
 
     
 
-    # noSocios = Repertorio.objects.filter(
-    #     explotacion__serie_id=idSerie,
-    #     explotacion__cadena=cadena,
-    #     explotacion__anio=anio,
-    #     Q(numeroActor__gt=0) & ~Q(numeroActor='F')  # Aquí encapsulamos todo en el filter
-    # ).values('personaje', 'nombreActor').distinct()
+   noSocios = Repertorio.objects.filter(
+    explotacion__serie_id=idSerie,
+    explotacion__cadena=cadena,
+    explotacion__anio=anio,
+    numeroActor__gt=0,  # Condición para que numeroActor sea mayor que 0
+        ~Q(numeroActor='F')  # Condición para que numeroActor sea diferente de 'F'
+    ).values('personaje', 'nombreActor').distinct()
+
     
     # fallecidos = Repertorio.objects.filter(
     #     explotacion__serie_id=idSerie,
@@ -121,7 +123,7 @@ def detalleRepertorio(request, idSerie, cadena, anio):
     return render(request, "repertorio.html", {
         'serie': serie,
         'noIdentificados': noIdentificados,
-        # 'noSocios': noSocios,
+        'noSocios': noSocios,
         'cadena': cadena,
         'anio': anio,
         # 'fallecidos': fallecidos
