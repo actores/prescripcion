@@ -99,10 +99,7 @@
 
                     <h3>No identificados</h3>
                     {{noIdentificados}}
-                    <h3>No sociosh3>
-                    {{noSocios}}
-                    <h3>Fallecidos</h3>
-                    {{fallecidos}}
+                  
 
                 </div>
 
@@ -153,14 +150,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for ns in noSocios %}
+                                <!-- {% for ns in noSocios %}
                                 {% if ns.numeroActor != '0' %}
                                 <tr>
                                     <td>{{ns.personaje}}</td>
                                     <td>{{ns.nombreActor}}</td>
                                 </tr>
                                 {% endif %}
-                                {% endfor %}
+                                {% endfor %} -->
                             </tbody>
                         </table>
                     </div>
@@ -173,13 +170,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for f in fallecidos %}
+                                <!-- {% for f in fallecidos %}
 
                                 <tr>
                                     <td>{{f.personaje}}</td>
                                     <td>{{f.nombreActor}}</td>
                                 </tr>
-                                {% endfor %}
+                                {% endfor %} -->
                             </tbody>
                         </table>
                     </div>

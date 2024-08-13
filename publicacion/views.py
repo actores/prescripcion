@@ -100,27 +100,31 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         numeroActor=0
     ).values('personaje', 'nombreActor').distinct()
 
-    noSocios = Repertorio.objects.filter(
-        explotacion__serie_id=idSerie,
-        explotacion__cadena=cadena,
-        explotacion__anio=anio,
-        Q(numeroActor__gt=0) & ~Q(numeroActor='F')  # Aquí encapsulamos todo en el filter
-    ).values('personaje', 'nombreActor').distinct()
+
+
     
-    fallecidos = Repertorio.objects.filter(
-        explotacion__serie_id=idSerie,
-        explotacion__cadena=cadena,
-        explotacion__anio=anio,
-        numeroActor='F'
-    ).values('personaje', 'nombreActor').distinct()
+
+    # noSocios = Repertorio.objects.filter(
+    #     explotacion__serie_id=idSerie,
+    #     explotacion__cadena=cadena,
+    #     explotacion__anio=anio,
+    #     Q(numeroActor__gt=0) & ~Q(numeroActor='F')  # Aquí encapsulamos todo en el filter
+    # ).values('personaje', 'nombreActor').distinct()
+    
+    # fallecidos = Repertorio.objects.filter(
+    #     explotacion__serie_id=idSerie,
+    #     explotacion__cadena=cadena,
+    #     explotacion__anio=anio,
+    #     numeroActor='F'
+    # ).values('personaje', 'nombreActor').distinct()
 
     return render(request, "repertorio.html", {
         'serie': serie,
         'noIdentificados': noIdentificados,
-        'noSocios': noSocios,
+        # 'noSocios': noSocios,
         'cadena': cadena,
         'anio': anio,
-        'fallecidos': fallecidos
+        # 'fallecidos': fallecidos
     })
 
 # def detalleObra(request, id):
