@@ -107,8 +107,9 @@ def detalleRepertorio(request, idSerie, cadena, anio):
     noSocios = Repertorio.objects.filter(
         explotacion__serie_id=idSerie,
         explotacion__cadena=cadena,
-        explotacion__anio=anio
-        (Q(numeroActor__gt=0) & ~Q(numeroActor='F'))
+        explotacion__anio=anio,
+        numeroActor__gt=0,  # Condición para que numeroActor sea mayor que 0
+        numeroActor__ne='F'  # Condición para que numeroActor sea diferente de 'F'
     ).values('personaje', 'nombreActor').distinct()
 
     
