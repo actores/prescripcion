@@ -97,7 +97,13 @@
 
                     <h4 class="title_table my-3">LISTADO DE ARTISTAS</h4>
 
+                    <h3>No identificados</h3>
+                    {{noIdentificados}}
+                    <h3>No sociosh3>
+                    {{noSocios}}
+                    <h3>Fallecidos</h3>
                     {{fallecidos}}
+
                 </div>
 
 
@@ -168,7 +174,7 @@
                             </thead>
                             <tbody>
                                 {% for f in fallecidos %}
-                               
+
                                 <tr>
                                     <td>{{f.personaje}}</td>
                                     <td>{{f.nombreActor}}</td>
