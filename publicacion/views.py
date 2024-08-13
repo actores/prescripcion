@@ -109,7 +109,6 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         explotacion__cadena=cadena,
         explotacion__anio=anio,
         numeroActor__gt=0,  # Condición para que numeroActor sea mayor que 0
-        ~Q(numeroActor='F')  # Condición para que numeroActor sea diferente de 'F'
     ).values('personaje', 'nombreActor').distinct()
 
     
