@@ -104,7 +104,7 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         explotacion__serie_id=idSerie,
         explotacion__cadena=cadena,
         explotacion__anio=anio,
-        Q(numeroActor__gt=0) & ~Q(numeroActor='F')  # Filtro para obtener resultados donde numeroActor sea mayor a 0 y diferente de F
+        Q(numeroActor__gt=0) & ~Q(numeroActor='F')  # Aquí encapsulamos todo en el filter
     ).values('personaje', 'nombreActor').distinct()
     
     fallecidos = Repertorio.objects.filter(
@@ -114,39 +114,15 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         numeroActor='F'
     ).values('personaje', 'nombreActor').distinct()
 
-
-    # sql_query = """
-    # SELECT r.*, e.cadena, e.anio
-    # FROM publicacion_repertorio AS r
-    # INNER JOIN publicacion_explotacion AS e ON r.explotacion_id = e.id
-    # WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s;
-    # """
-
-    # sql_query_ni = """
-    # SELECT r.id,r.tituloCapitulo,r.numeroActor,r.personaje,r.nombreActor,r.numeroObra,r.created_at,r.updated_at,r.explotacion_id,e.cadena, e.anio
-    # FROM publicacion_repertorio AS r
-    # INNER JOIN publicacion_explotacion AS e ON r.explotacion_id = e.id
-    # WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s AND r.numeroActor = 0 group by r.personaje
-    # """
-
-    # sql_query_ns = """
-    # SELECT r.id,r.tituloCapitulo,r.numeroActor,r.personaje,r.nombreActor,r.numeroObra,r.created_at,r.updated_at,r.explotacion_id,e.cadena, e.anio
-    # FROM publicacion_repertorio AS r
-    # INNER JOIN publicacion_explotacion AS e ON r.explotacion_id = e.id
-    # WHERE e.serie_id = %s AND e.cadena = %s AND e.anio = %s AND r.numeroActor <> 0 group by r.numeroActor
-    # """
-
-    # noIdentificados = Repertorio.objects.raw(sql_query_ni, [idSerie, cadena, anio])
-    # noSocios = Repertorio.objects.raw(sql_query_ns, [idSerie, cadena, anio])
-    
     return render(request, "repertorio.html", {
         'serie': serie,
-        'noIdentificados':noIdentificados,
+        'noIdentificados': noIdentificados,
         'noSocios': noSocios,
-        'cadena' : cadena,
-        'anio' : anio,
-        'fallecidos' : fallecidos
+        'cadena': cadena,
+        'anio': anio,
+        'fallecidos': fallecidos
     })
+
 # def detalleObra(request, id):
 #     detallado = DetalleObra.objects.filter(obra_id=id)
 #     return render(request, "detalleObra.html",{
