@@ -104,7 +104,7 @@ def detalleRepertorio(request, idSerie, cadena, anio):
 
     
 
-   noSocios = Repertorio.objects.filter(
+    noSocios = Repertorio.objects.filter(
         explotacion__serie_id=idSerie,
         explotacion__cadena=cadena,
         explotacion__anio=anio,
