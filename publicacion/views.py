@@ -108,7 +108,7 @@ def detalleRepertorio(request, idSerie, cadena, anio):
         explotacion__serie_id=idSerie,
         explotacion__cadena=cadena,
         explotacion__anio=anio
-        Q(numeroActor__gt=0) & ~Q(numeroActor='F')
+        (Q(numeroActor__gt=0) & ~Q(numeroActor='F'))
     ).values('personaje', 'nombreActor').distinct()
 
     
